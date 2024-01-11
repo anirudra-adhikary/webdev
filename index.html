@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <title>Find Factorial</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 0;
+            }
+
+            .container {
+                text-align: center;
+                margin: 50px auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 300px;
+            }
+
+            h1 {
+                color: #333;
+            }
+
+            form {
+                margin-bottom: 20px;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            input {
+                width: 100%;
+                padding: 8px;
+                box-sizing: border-box;
+                margin-bottom: 10px;
+            }
+
+            button {
+                background-color: #4caf50;
+                color: #fff;
+                padding: 10px 15px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #45a049;
+            }
+
+            #factorial {
+                font-size: 18px;
+                color: #333;
+            }
+        </style>
+    </head>
+    <script>
+        function solution(n) {
+            if ((n == 0) || (n == 1)) {
+                return 1;
+            } else {
+                return n * solution(n - 1);
+            }
+        }
+
+        function fact() {
+            let n = parseInt(document.getElementById("num").value)
+
+            if (n < 0) {
+                alert("Please enter a positive number: ");
+            } else {
+                let ans = solution(n);
+                document.getElementById("factorial").innerHTML = `Factorial is ${ans}`;
+            }
+        }
+    </script>
+
+    <body>
+        <div class="container">
+            <h1>Check factorial</h1>
+            <form>
+                <label for="num">Enter the number</label>
+                <input type="number" id="num"><br><br>
+            </form>
+            <button onclick="fact()">Click</button>
+            <p id="factorial"></p>
+        </div>
+    </body>
+</html>
